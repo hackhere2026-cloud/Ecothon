@@ -1,0 +1,7 @@
+.motion-paused .opening,.motion-paused .opening::backdrop{transition:none}
+.opening[open]{display:grid;grid-template-columns:100%;grid-template-rows:auto minmax(0,1fr) auto;width:100vw;width:100dvw;max-width:none;height:100svh;height:100dvh;max-height:none;margin:0;inset:0;justify-items:stretch}
+.opening-top,.opening-center,.opening-bottom{width:100%;box-sizing:border-box}
+.opening-center{position:relative;inset:auto;transform:none;align-self:center}
+.opening-bottom{margin-top:0}
+@media(max-width:760px){.opening-center{transform:none}}
+@media(max-height:650px){.opening-center{padding:8px 20px}.opening-emblem{width:56px;height:56px;margin-bottom:12px}.opening-brand{left:15px;top:17px;width:27px;height:24px}.opening-script{font-size:23px;margin-bottom:11px}.opening h2{font-size:24px;margin-bottom:12px}.opening-altitude{font-size:65px}.opening-status-row{margin-top:17px}.opening-top{padding-top:18px;padding-bottom:16px}.opening-bottom{padding-top:15px;padding-bottom:15px}.opening-chapters{gap:6px}}

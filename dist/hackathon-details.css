@@ -1,0 +1,45 @@
+#track-title,#phase-title{white-space:pre-line}
+.build-section{overflow:hidden}
+.hero-content{top:17%}
+.hero-name{font-size:clamp(45px,min(9.7vw,15svh),156px)}
+.hero-hacks{font-size:clamp(130px,min(19.5vw,29svh),285px)}
+.hero-cta{max-width:460px}
+.hero-cta .button{white-space:nowrap;font-size:14px;padding:14px 18px;gap:14px}
+.brand>span:last-child,.desktop-nav,.nav-register,.button,.agenda-tabs button,.faq-list summary,.back-top{font-size:14px}
+.brand small{font-size:12px;letter-spacing:3px}
+.track-card small,.terminal-head,.track-tags span,.prompt-block>span,.hero-kicker,.section-eyebrow,.mono-label,.track-number,.principle-number,.builder-types,.phase-code~span,.agenda-items li>span,.agenda-items small,.hero-edge-label,.hero-scroll,.hero-footer>div>span,.cta-note,.footer-bottom,.footer-bottom>div{font-size:12px}
+.hero-footer strong,.modal label,.consent,.draft-actions button{font-size:14px}
+.hero-pitch p,.about-copy p,.principles p,.track-body>p,.section-heading>p,.phase-statement p,.agenda-items p,.build-bottom p,.faq-list details p,.faq-note,.modal-description{font-size:16px}
+.track-card strong{font-size:clamp(19px,1.6vw,24px)}
+.opening .opening-script,.opening h2{animation:none}
+.opening .opening-progress i{background:#d5fa5b}
+.opening-top,.opening-coordinates,.opening-altitude-label,.opening-chapters>span,.opening-chapters i{font-size:12px}
+.opening-skip,.opening-status-row p{font-size:14px}
+.opening-reveal .hero-content{animation:opening-copy-reveal 1.3s .15s both}
+@media(max-width:760px){
+  .nav{gap:12px}
+  .nav-register{font-size:12px;padding:10px}
+  .nav-register span{display:none}
+  .brand{gap:7px}
+  .brand>span:last-child{font-size:12px;letter-spacing:.6px}
+  .brand small{font-size:12px;letter-spacing:2px}
+  .hero-content{top:18%}
+  .hero-name{font-size:10.7vw}
+  .hero-hacks{font-size:24.5vw}
+  .hero-kicker{font-size:12px;letter-spacing:0;gap:10px}
+  .hero-kicker>span:last-child{max-width:100px;text-align:right}
+  .hero-cta{grid-template-columns:1fr;gap:9px}
+  .hero-cta .button{font-size:14px;min-height:48px}
+  .cta-note{grid-column:auto;font-size:12px;line-height:1.6}
+  .hero-footer{bottom:25px}
+  .track-card{padding:20px 15px;gap:12px}
+  .track-card small{font-size:12px;line-height:1.7;letter-spacing:0}
+  .agenda-tabs button{font-size:12px;padding-right:13px}
+  .footer-main p,.back-top{font-size:14px}
+  .opening .opening-script{font-size:23px}
+  .opening-top{letter-spacing:.5px}
+  .opening-coordinates{max-width:100px;text-align:right}
+  .opening-altitude-label{letter-spacing:1px}
+}
+@media(max-width:400px){.hero-content{top:16%}.hero-pitch h2{font-size:29px}.hero-lower{margin-top:23px}.hero-cta{margin-top:22px}}
+@media(max-height:700px) and (min-width:761px){.hero-content{top:110px}.hero-name{font-size:clamp(45px,9vw,108px)}.hero-hacks{font-size:clamp(130px,17vw,205px)}}
