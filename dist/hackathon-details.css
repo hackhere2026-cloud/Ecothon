@@ -43,3 +43,91 @@
 }
 @media(max-width:400px){.hero-content{top:16%}.hero-pitch h2{font-size:29px}.hero-lower{margin-top:23px}.hero-cta{margin-top:22px}}
 @media(max-height:700px) and (min-width:761px){.hero-content{top:110px}.hero-name{font-size:clamp(45px,9vw,108px)}.hero-hacks{font-size:clamp(130px,17vw,205px)}}
+
+/* ==========================================================================
+   QUANTEXA ARCHITECTURE LAYOUT — DODDABETTA THEME
+   ========================================================================== */
+.container{max-width:1280px;margin:0 auto;padding:0 5%;width:100%}
+.section-header{text-align:center;max-width:780px;margin:0 auto 55px auto}
+.section-tag{font-family:var(--mono);font-size:11px;letter-spacing:.25em;color:var(--lime);margin-bottom:12px;display:block}
+.section-title{font-family:var(--display);font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700;letter-spacing:-.04em;color:var(--ink);line-height:1.1;margin-bottom:18px}
+.section-desc{font-size:16px;color:#a4b5a6;line-height:1.8}
+
+/* Stats Counter Bar */
+.stats-section{padding:55px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(10,16,16,.96);position:relative;z-index:10}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat-card{padding:28px 20px;background:var(--panel);border:1px solid rgba(213,250,91,.18);backdrop-filter:blur(20px);text-align:center;transition:transform .3s ease,border-color .3s ease}
+.stat-card:hover{transform:translateY(-4px);border-color:var(--lime)}
+.stat-value{font-family:var(--display);font-size:clamp(2rem,3.2vw,2.75rem);font-weight:700;color:var(--ink);letter-spacing:-.04em;line-height:1.1}
+.stat-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--lime);margin-top:10px}
+
+/* HUD Reticles */
+.reticle-corner{position:absolute;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:rgba(255,255,255,.45);pointer-events:none;z-index:5}
+.reticle-corner.top-left{top:90px;left:5%}
+.reticle-corner.top-right{top:90px;right:5%;text-align:right}
+.reticle-corner.bot-left{bottom:85px;left:5%;font-size:18px}
+.reticle-corner.bot-right{bottom:85px;right:5%;font-size:18px;text-align:right}
+
+/* Feature Grid */
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.feature-card{background:var(--panel);border:1px solid rgba(213,250,91,.18);padding:32px 24px;backdrop-filter:blur(20px);transition:border-color .3s,transform .3s,box-shadow .3s}
+.feature-card:hover{border-color:var(--lime);transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.feature-icon{font-size:2.2rem;margin-bottom:16px;line-height:1}
+.feature-title{font-family:var(--display);font-size:19px;font-weight:600;color:var(--ink);margin-bottom:10px;letter-spacing:-.03em}
+.feature-text{font-size:14px;color:#a4b5a6;line-height:1.8;margin:0}
+
+/* Schedule Timeline */
+.schedule-timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.timeline-day-card{background:var(--panel);border:1px solid rgba(213,250,91,.18);padding:34px 28px;backdrop-filter:blur(20px);transition:border-color .3s,transform .3s}
+.timeline-day-card:hover{border-color:var(--lime);transform:translateY(-4px)}
+.day-badge{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--lime);margin-bottom:14px}
+.day-title{font-family:var(--display);font-size:20px;font-weight:600;letter-spacing:-.03em;color:var(--ink);margin-bottom:22px}
+.day-events{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px}
+.day-events li{font-size:14px;color:#a4b5a6;line-height:1.6;border-left:2px solid rgba(213,250,91,.25);padding-left:14px}
+.day-events .time{font-family:var(--mono);font-size:12px;color:var(--lime);display:block;margin-bottom:4px}
+
+/* Prizes Grid */
+.prizes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.prize-card{background:var(--panel);border:1px solid rgba(213,250,91,.18);padding:34px 22px;text-align:center;backdrop-filter:blur(20px);transition:transform .3s,border-color .3s}
+.prize-card:hover{transform:translateY(-5px);border-color:var(--lime)}
+.prize-card.grand-prize{border-color:var(--lime);background:linear-gradient(180deg,rgba(213,250,91,.08) 0%,var(--panel) 100%);box-shadow:0 0 35px rgba(213,250,91,.12)}
+.prize-trophy{font-size:2.5rem;margin-bottom:14px;line-height:1}
+.prize-title{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--lime);margin-bottom:10px}
+.prize-amount{font-family:var(--display);font-size:clamp(1.8rem,2.5vw,2.2rem);font-weight:700;color:var(--ink);letter-spacing:-.04em;margin-bottom:12px}
+.prize-details{font-size:13px;color:#a4b5a6;line-height:1.7;margin:0}
+
+/* Judges Grid */
+.judges-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:24px}
+.judge-card{background:var(--panel);border:1px solid rgba(213,250,91,.18);padding:32px 22px;text-align:center;backdrop-filter:blur(20px);transition:transform .3s,border-color .3s}
+.judge-card:hover{transform:translateY(-4px);border-color:var(--lime)}
+.judge-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 16px auto;display:flex;justify-content:center;align-items:center;border:2px solid var(--lime);background:#142420;box-shadow:0 0 20px rgba(213,250,91,.2)}
+.avatar-text{font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--lime)}
+.judge-name{font-family:var(--display);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px;letter-spacing:-.02em}
+.judge-role{font-family:var(--sans);font-size:12px;color:var(--lime);margin-bottom:4px}
+.judge-org{font-family:var(--mono);font-size:11px;color:#8c9e8f}
+
+/* Registration Section & Card */
+.registration-section{padding:100px 5%}
+.registration-card{width:100%;max-width:620px;margin:0 auto;background:var(--panel);border:1px solid rgba(213,250,91,.35);padding:44px 38px;backdrop-filter:blur(25px);box-shadow:0 0 45px rgba(213,250,91,.1)}
+.card-title{font-family:var(--display);font-size:clamp(1.8rem,3.2vw,2.5rem);font-weight:700;letter-spacing:-.04em;color:var(--ink);margin-bottom:8px}
+.card-subtitle{font-size:14px;color:#a4b5a6;margin-bottom:28px;line-height:1.7}
+.form-group{margin-bottom:20px;text-align:left}
+.form-label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--lime);margin-bottom:8px}
+.form-input{width:100%;background:#0b130f;border:1px solid rgba(213,250,91,.25);padding:13px 15px;color:var(--ink);font-family:var(--sans);font-size:14px;box-sizing:border-box;transition:border-color .3s,box-shadow .3s}
+.form-input:focus{outline:none;border-color:var(--lime);box-shadow:0 0 14px rgba(213,250,91,.25)}
+select.form-input option{background:#0b130f;color:var(--ink)}
+.btn-submit{width:100%;background:var(--lime);color:#131a0c;border:0;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.05em;padding:15px 22px;cursor:pointer;transition:background .2s,transform .2s;display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.btn-submit:hover{background:#e2ff7d;transform:translateY(-2px)}
+.form-success{text-align:center;padding:24px 10px}
+.success-icon{width:54px;height:54px;background:var(--lime);color:#0b130f;font-size:26px;font-weight:700;border-radius:50%;display:flex;justify-content:center;align-items:center;margin:0 auto 18px auto;box-shadow:0 0 25px rgba(213,250,91,.4)}
+.form-success h3{font-family:var(--display);font-size:22px;color:var(--ink);margin-bottom:10px}
+.form-success p{font-size:14px;color:#a4b5a6;line-height:1.7}
+
+@media(max-width:1024px){
+  .stats-grid,.feature-grid,.schedule-timeline,.prizes-grid,.judges-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .stats-grid,.feature-grid,.schedule-timeline,.prizes-grid,.judges-grid{grid-template-columns:1fr}
+  .registration-card{padding:30px 20px}
+  .reticle-corner{display:none}
+}

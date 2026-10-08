@@ -51,6 +51,7 @@
   }
 
   function start(replaying = false) {
+    if (!replaying && (new URLSearchParams(location.search).has('skip') || new URLSearchParams(location.search).has('skipIntro') || new URLSearchParams(location.search).has('skipOpening'))) return;
     cancelAnimationFrame(frame); clearTimeout(maximumTimer); clearTimeout(closeTimer); clearTimeout(revealTimer);
     generation += 1;
     const run = generation;
