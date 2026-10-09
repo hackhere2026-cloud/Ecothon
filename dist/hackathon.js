@@ -51,6 +51,143 @@
   if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.08});$$('.reveal').forEach(el=>observer.observe(el));}else $$('.reveal').forEach(el=>el.classList.add('visible'));
   $('#start-ascent').addEventListener('click',()=>$('#about').scrollIntoView({behavior:paused?'instant':'smooth'}));
 
+  const sponsorsData = {
+    gohub: {
+      name: 'go.hub',
+      category: 'tech',
+      tier: 'PLATINUM PARTNER // DEV & CLOUD',
+      title: 'Cloud Infrastructure & Collaborative Dev',
+      desc: 'go.hub provides every registered builder at Doddabetta Hacks with instant-on development environments, containerized workspaces, and high-speed CI/CD runners for peak engineering velocity.',
+      perks: [
+        '$2,000 in free cloud compute & container credits',
+        'Instant staging environments with live URL previews',
+        'VIP technical mentorship office hours during the sprint'
+      ]
+    },
+    scidaforest: {
+      name: 'scidaforest',
+      category: 'tech',
+      tier: 'ECOSYSTEM PARTNER // BIO & CLIMATE',
+      title: 'Ecological Intelligence & Sensor Networks',
+      desc: 'scidaforest equips teams with real-time ecological telemetry, high-resolution satellite forestry datasets, and environmental API keys tailored for local climate resilience and conservation.',
+      perks: [
+        'Live Bio & Forest telemetry API access with unrestricted keys',
+        'Direct sandbox testing on low-power sensor nodes',
+        'Special $5,000 Climate Impact Bounty for winning ecological prototype'
+      ]
+    },
+    elrotech: {
+      name: 'elro tech',
+      category: 'tech',
+      tier: 'INNOVATION CATALYST // HARDWARE & EDGE',
+      title: 'Edge Neural Acceleration & Micro-Compute',
+      desc: 'elro tech delivers ultra-efficient edge computing modules, on-site hardware testing kits, and neural processing units for teams creating real-world physical and embedded intelligence.',
+      perks: [
+        'On-site hardware loaner kits (neural compute sticks & dev boards)',
+        '1-on-1 hardware debugging support from principal engineers',
+        'Direct seed sponsorship consideration for outstanding hardware builds'
+      ]
+    },
+    unstop: {
+      name: 'unstop',
+      category: 'platform',
+      tier: 'POWERED BY // TALENT PLATFORM',
+      title: 'Global Community & Career Acceleration',
+      desc: 'unstop connects the Doddabetta hacker community to an expansive global network of tech leaders, high-growth startups, and live venture evaluation channels.',
+      perks: [
+        'Fast-track hiring profiles pushed directly to premier tech recruiters',
+        'Official digital certificates & verified builder credentials',
+        'Unstop Pro access & premium interview preparation modules'
+      ]
+    },
+    delyon: {
+      name: 'delyon',
+      category: 'venture',
+      tier: 'LAUNCHPAD PARTNER // SEED VENTURE',
+      title: 'Pre-Seed Capital & Strategic Incubation',
+      desc: 'delyon accelerates top-tier hackathon projects from 24-hour prototypes into venture-backed companies, offering non-dilutive grant matching and investor syndicate showcases.',
+      perks: [
+        'Pre-seed grant matching up to $10,000 for top 3 teams',
+        'Invitation to closed-door Demo Day with global angel investors',
+        '3 months free legal, cloud credits, and incorporation assistance'
+      ]
+    }
+  };
+
+  let activeSponsor = 'gohub';
+
+  function updateSponsorConsole(key) {
+    const s = sponsorsData[key];
+    if (!s) return;
+    activeSponsor = key;
+
+    $$('.sponsor-card').forEach(card => {
+      const isSelected = card.dataset.sponsor === key;
+      card.classList.toggle('selected', isSelected);
+      card.setAttribute('aria-pressed', String(isSelected));
+    });
+
+    const brandEl = $('#sponsor-console-brand');
+    const tierEl = $('#sponsor-console-tier');
+    const titleEl = $('#sponsor-console-title');
+    const descEl = $('#sponsor-console-desc');
+    const perksEl = $('#sponsor-console-perks');
+    const actionBtn = $('#sponsor-action-btn');
+
+    if (brandEl) brandEl.textContent = s.name;
+    if (tierEl) tierEl.textContent = s.tier;
+    if (titleEl) titleEl.textContent = s.title;
+    if (descEl) descEl.textContent = s.desc;
+    if (perksEl) {
+      perksEl.replaceChildren(...s.perks.map(p => {
+        const li = document.createElement('li');
+        li.textContent = p;
+        return li;
+      }));
+    }
+    if (actionBtn) {
+      actionBtn.innerHTML = `Claim ${s.name} Perks <span>➔</span>`;
+    }
+  }
+
+  $$('.sponsor-card').forEach(card => {
+    const key = card.dataset.sponsor;
+    card.addEventListener('click', () => updateSponsorConsole(key));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        updateSponsorConsole(key);
+      }
+    });
+  });
+
+  $$('.sponsor-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.dataset.category;
+      $$('.sponsor-filter').forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-pressed', String(isActive));
+      });
+
+      let firstVisible = null;
+      $$('.sponsor-card').forEach(card => {
+        const match = cat === 'all' || card.dataset.category === cat;
+        card.classList.toggle('is-dimmed', !match);
+        if (match && !firstVisible) firstVisible = card.dataset.sponsor;
+      });
+
+      if (firstVisible && cat !== 'all' && sponsorsData[activeSponsor]?.category !== cat) {
+        updateSponsorConsole(firstVisible);
+      }
+    });
+  });
+
+  $('#sponsor-action-btn')?.addEventListener('click', () => {
+    const current = sponsorsData[activeSponsor] || { name: 'Partner' };
+    toast(`${current.name} perks access requested! Check your registered email for sandbox keys.`);
+  });
+
   if(document.modelContext?.registerTool){const lifecycle=new AbortController();const definitions=[
     {name:'read_hackathon_details',title:'Read hackathon details',description:'Read the event preview, selected challenge, and phase. Dates and official registration are not yet announced.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true,untrustedContentHint:false},execute:input=>{if(!input||typeof input!=='object'||Object.keys(input).length)throw new Error('This read tool accepts an empty object only.');return {name:'Doddabetta Hacks',location:'Ooty, India',dates:'To be announced',officialRegistrationOpen:false,selectedTrack:track,selectedPhase:phase,tracks:Object.entries(tracks).map(([id,t])=>({id,name:t.name}))};}},
     {name:'select_challenge_track',title:'Select challenge track',description:'Change the visible challenge track and its build-brief starting point.',inputSchema:{type:'object',properties:{track:{type:'string',enum:Object.keys(tracks)}},required:['track'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute:input=>{if(!input||typeof input.track!=='string')throw new Error('A track is required.');return selectTrack(input.track);}},
