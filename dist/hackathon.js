@@ -26,7 +26,7 @@
   $$('.open-registration').forEach(b=>b.addEventListener('click',()=>{fillDraft();$('#registration').showModal();}));
   $('#registration-form').addEventListener('submit',e=>{e.preventDefault();if(!e.currentTarget.reportValidity())return;try{saveDraft({name:$('#registration-name').value,email:$('#registration-email').value,role:$('#registration-role').value,track:$('#registration-track').value,consent:$('#draft-consent').checked});}catch(error){$('#registration-message').textContent=error.message;}});
   function download(text,filename){const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'})),link=document.createElement('a');link.href=url;link.download=filename;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
-  function triggerDraftDownload(){if(!draft)return;download(`DODDABETTA HACKS — REGISTRATION DRAFT\n\nName: ${draft.name}\nEmail: ${draft.email}\nRole: ${draft.role}\nInterested track: ${tracks[draft.track].name}\n\nThis is a locally prepared draft, not a submitted application or reserved place.\nEvent dates, venue, official registration, and rules: to be announced.\n`, 'doddabetta-hacks-registration-draft.txt');toast('Your registration draft is ready to download');}
+  function triggerDraftDownload(){if(!draft)return;download(`DODDABETTA HACKS — REGISTRATION DRAFT\n\nName: ${draft.name}\nEmail: ${draft.email}\nRole: ${draft.role}\nInterested track: ${tracks[draft.track].name}\n\nEvent dates: December 12 & 13, 2026\nSetting: Ooty, Tamil Nadu, India\nDuration: 24 Hours Non-Stop\n\nThis is a locally prepared draft, not an official ticket or reserved place.\nOfficial check-in instructions and venue details will be sent to registered builders.\n`, 'doddabetta-hacks-registration-draft.txt');toast('Your registration draft is ready to download');}
   $('#download-registration').addEventListener('click',triggerDraftDownload);
   $('#clear-registration').addEventListener('click',()=>{draft=null;try{localStorage.removeItem('doddabetta-hacks-registration');}catch{}$('#registration-form').reset();if($('#onpage-register-form'))$('#onpage-register-form').reset();fillDraft();$('#registration-message').textContent='The saved draft has been cleared from this device.';});
   const onpageForm=$('#onpage-register-form');
@@ -38,7 +38,7 @@
     $('#onpage-success-reset')?.addEventListener('click',()=>{$('#onpage-form-success').hidden=true;$('#onpage-form-chamber').hidden=false;});
   }
   $('#build-brief').addEventListener('click',()=>{$('#brief-track').value=track;$('#brief').showModal();});
-  $('#brief-form').addEventListener('submit',e=>{e.preventDefault();if(!e.currentTarget.reportValidity())return;const key=$('#brief-track').value,problem=$('#brief-problem').value.trim(),team=$('#brief-team').value.trim()||'Untitled team';if(!problem){$('#brief-problem').setCustomValidity('Describe the problem you want to solve.');$('#brief-problem').reportValidity();return;}download(`DODDABETTA HACKS — FIRST BUILD BRIEF\n\nTeam: ${team}\nChallenge track: ${tracks[key].name}\n\nTHE PROBLEM\n${problem}\n\nSTARTING QUESTION\n${tracks[key].prompt}\n\nFIRST THREE TASKS\n1. Choose one user and one useful outcome.\n2. Build the smallest flow that demonstrates it.\n3. Prepare a clear story and a working demo.\n\nDEMO CHECKLIST\n- Explain the user and the problem.\n- Show the core flow working.\n- Discuss limitations and the next iteration.\n\nEvent dates, duration, and official submission requirements: to be announced.\n`,'doddabetta-hacks-build-brief.txt');toast('Your team brief is ready to download');});$('#brief-problem').addEventListener('input',()=>$('#brief-problem').setCustomValidity(''));
+  $('#brief-form').addEventListener('submit',e=>{e.preventDefault();if(!e.currentTarget.reportValidity())return;const key=$('#brief-track').value,problem=$('#brief-problem').value.trim(),team=$('#brief-team').value.trim()||'Untitled team';if(!problem){$('#brief-problem').setCustomValidity('Describe the problem you want to solve.');$('#brief-problem').reportValidity();return;}download(`DODDABETTA HACKS — FIRST BUILD BRIEF\n\nTeam: ${team}\nChallenge track: ${tracks[key].name}\nEvent dates: December 12 & 13, 2026\nLocation: Ooty, Tamil Nadu (24-Hour Non-Stop Hackathon)\n\nTHE PROBLEM\n${problem}\n\nSTARTING QUESTION\n${tracks[key].prompt}\n\nFIRST THREE TASKS\n1. Choose one user and one useful outcome.\n2. Build the smallest flow that demonstrates it.\n3. Prepare a clear story and a working demo.\n\nDEMO CHECKLIST\n- Explain the user and the problem.\n- Show the core flow working.\n- Discuss limitations and the next iteration.\n\nSummit kickoff: 10:00 IST on December 12, 2026.\n`,'doddabetta-hacks-build-brief.txt');toast('Your team brief is ready to download');});$('#brief-problem').addEventListener('input',()=>$('#brief-problem').setCustomValidity(''));
   $$('.modal').forEach(d=>{d.querySelector('.modal-close').addEventListener('click',()=>d.close());d.addEventListener('click',e=>{const r=d.getBoundingClientRect();if(e.target===d&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))d.close();});});
   const mobile=$('.mobile-nav');function closeMenu(){mobile.hidden=true;$('.menu-toggle').setAttribute('aria-expanded','false');$('.menu-toggle').setAttribute('aria-label','Open navigation');}
   $('.menu-toggle').addEventListener('click',()=>{mobile.hidden=!mobile.hidden;$('.menu-toggle').setAttribute('aria-expanded',String(!mobile.hidden));$('.menu-toggle').setAttribute('aria-label',mobile.hidden?'Open navigation':'Close navigation');});$$('.mobile-nav a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
@@ -188,8 +188,43 @@
     toast(`${current.name} perks access requested! Check your registered email for sandbox keys.`);
   });
 
+  // Live Event Countdown for December 12 & 13, 2026
+  const EVENT_START_DATE = new Date('2026-12-12T10:00:00+05:30').getTime();
+
+  function updateEventCountdown() {
+    const now = Date.now();
+    const diff = Math.max(0, EVENT_START_DATE - now);
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+
+    const cdDays = $('#cd-days');
+    const cdHours = $('#cd-hours');
+    const cdMins = $('#cd-mins');
+    const cdSecs = $('#cd-secs');
+
+    if (cdDays) cdDays.textContent = String(days).padStart(2, '0');
+    if (cdHours) cdHours.textContent = String(hours).padStart(2, '0');
+    if (cdMins) cdMins.textContent = String(mins).padStart(2, '0');
+    if (cdSecs) cdSecs.textContent = String(secs).padStart(2, '0');
+
+    const daysString = String(days);
+    if ($('#hero-kicker-days')) $('#hero-kicker-days').textContent = daysString;
+    if ($('#hero-cta-days')) $('#hero-cta-days').textContent = daysString;
+    if ($('#hero-footer-days')) $('#hero-footer-days').textContent = daysString;
+
+    if (diff === 0 && $('#countdown-status-label')) {
+      $('#countdown-status-label').textContent = 'HACKATHON LIVE NOW';
+    }
+  }
+
+  updateEventCountdown();
+  setInterval(updateEventCountdown, 1000);
+
   if(document.modelContext?.registerTool){const lifecycle=new AbortController();const definitions=[
-    {name:'read_hackathon_details',title:'Read hackathon details',description:'Read the event preview, selected challenge, and phase. Dates and official registration are not yet announced.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true,untrustedContentHint:false},execute:input=>{if(!input||typeof input!=='object'||Object.keys(input).length)throw new Error('This read tool accepts an empty object only.');return {name:'Doddabetta Hacks',location:'Ooty, India',dates:'To be announced',officialRegistrationOpen:false,selectedTrack:track,selectedPhase:phase,tracks:Object.entries(tracks).map(([id,t])=>({id,name:t.name}))};}},
+    {name:'read_hackathon_details',title:'Read hackathon details',description:'Read the event details, selected challenge, schedule, and dates (December 12 & 13, 2026 in Ooty).',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true,untrustedContentHint:false},execute:input=>{if(!input||typeof input!=='object'||Object.keys(input).length)throw new Error('This read tool accepts an empty object only.');const daysLeft=Math.floor(Math.max(0,EVENT_START_DATE-Date.now())/(1000*60*60*24));return {name:'Doddabetta Hacks',location:'Ooty, Tamil Nadu, India',dates:'December 12–13, 2026',daysLeft:daysLeft,officialRegistrationOpen:false,selectedTrack:track,selectedPhase:phase,tracks:Object.entries(tracks).map(([id,t])=>({id,name:t.name}))};}},
     {name:'select_challenge_track',title:'Select challenge track',description:'Change the visible challenge track and its build-brief starting point.',inputSchema:{type:'object',properties:{track:{type:'string',enum:Object.keys(tracks)}},required:['track'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute:input=>{if(!input||typeof input.track!=='string')throw new Error('A track is required.');return selectTrack(input.track);}},
     {name:'set_event_phase',title:'Explore event phase',description:'Select the visible draft event phase. Timings are not confirmed.',inputSchema:{type:'object',properties:{phase:{type:'string',enum:Object.keys(phases)}},required:['phase'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute:input=>{if(!input||typeof input.phase!=='string')throw new Error('A phase is required.');return selectPhase(input.phase);}},
     {name:'save_registration_draft',title:'Save local registration draft',description:'Save a draft on this device only and open the registration preview. Does not submit an application or reserve a place. Requires explicit consent to the local preview.',inputSchema:{type:'object',properties:{name:{type:'string',minLength:1,maxLength:80},email:{type:'string',maxLength:120},role:{type:'string',enum:['developer','designer','student','other']},track:{type:'string',enum:Object.keys(tracks)},consent:{type:'boolean',const:true}},required:['name','email','role','track','consent'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:true},execute:input=>{const result=saveDraft(input);if(!$('#registration').open)$('#registration').showModal();return result;}}

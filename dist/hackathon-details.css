@@ -201,3 +201,47 @@ select.form-input option{background:#0b130f;color:var(--ink)}
   .sponsor-filter{flex:1 1 42%;text-align:center;padding:8px 10px;font-size:10px}
 }
 
+/* ==========================================================================
+   EVENT DATE & LIVE COUNTDOWN HUD (DEC 12 & 13)
+   ========================================================================== */
+.hero-date-badge{display:inline-flex;align-items:center;gap:7px;color:var(--ink);letter-spacing:.08em}
+.hero-date-badge .badge-dot{color:var(--lime);font-size:10px}
+.hero-countdown-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(213,250,91,.1);border:1px solid rgba(213,250,91,.35);padding:4px 11px;color:var(--lime);font-size:10px;letter-spacing:.14em;border-radius:2px}
+.hero-countdown-pill strong{color:var(--ink);font-weight:700}
+.date-glow{color:var(--lime);letter-spacing:.06em}
+.highlight-days{color:var(--lime)!important}
+
+.countdown-hud{background:rgba(16,25,25,.88);border:1px solid rgba(213,250,91,.28);backdrop-filter:blur(25px);padding:26px 30px;margin-bottom:32px;box-shadow:0 0 38px rgba(213,250,91,.08);position:relative}
+.countdown-hud-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;margin-bottom:20px;border-bottom:1px solid rgba(213,250,91,.16);flex-wrap:wrap;gap:14px}
+.countdown-hud-title{display:flex;align-items:center;gap:10px}
+.hud-reticle{font-family:var(--mono);font-size:11px;color:var(--lime);letter-spacing:.16em}
+.hud-label{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--ink)}
+.countdown-hud-date{font-family:var(--mono);font-size:12px;color:var(--lime);letter-spacing:.08em;display:flex;align-items:center;gap:8px}
+.countdown-hud-date strong{color:var(--ink);letter-spacing:.05em}
+.hud-sep{color:rgba(213,250,91,.5)}
+.countdown-hud-status{font-family:var(--mono);font-size:11px;color:var(--lime);display:flex;align-items:center;gap:8px;letter-spacing:.12em}
+
+.countdown-hud-grid{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap}
+.countdown-box{background:rgba(10,16,16,.92);border:1px solid rgba(213,250,91,.25);padding:16px 26px;min-width:120px;text-align:center;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease}
+.countdown-box:hover{border-color:var(--lime);transform:translateY(-3px);box-shadow:0 0 24px rgba(213,250,91,.2)}
+.countdown-digit{font-family:var(--display);font-size:clamp(2.1rem,3.8vw,3.2rem);font-weight:700;color:var(--ink);line-height:1;letter-spacing:-.03em}
+.countdown-sub{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--lime);margin-top:8px}
+.countdown-sep{font-family:var(--display);font-size:2.2rem;color:rgba(213,250,91,.6);margin-bottom:18px;font-weight:700}
+
+@media(max-width:768px){
+  .countdown-hud{padding:18px 16px;margin-bottom:24px}
+  .countdown-hud-header{flex-direction:column;align-items:flex-start;gap:10px}
+  .countdown-hud-grid{gap:8px}
+  .countdown-box{min-width:68px;padding:12px 10px}
+  .countdown-digit{font-size:1.8rem}
+  .countdown-sub{font-size:8px;letter-spacing:.1em;margin-top:6px}
+  .countdown-sep{font-size:1.4rem;margin-bottom:12px}
+  .hero-kicker{flex-wrap:wrap;gap:8px}
+}
+@media(max-width:480px){
+  .countdown-box{min-width:62px;padding:10px 8px}
+  .countdown-digit{font-size:1.5rem}
+  .countdown-sep{display:none}
+}
+
+
