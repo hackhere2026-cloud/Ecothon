@@ -1,6 +1,6 @@
-# Doddabetta Hacks
+# Ecothon 2026
 
-A cinematic, interactive hackathon event website set in Ooty. Doddabetta is the event's creative identity and location reference, with the enhanced real photograph as the backdrop.
+A cinematic, interactive hackathon event website set in Ooty on December 12 & 13, 2026. Ecothon brings together 500+ builders for a 24-hour sprint in the Nilgiri hills.
 
 ## Deploy on Vercel
 
@@ -32,16 +32,18 @@ Open `http://localhost:4173`. This is plain HTML, CSS, and JavaScript; there are
 
 ## Features
 
-- Enhanced real Doddabetta photograph with scroll-driven motion.
+- Enhanced real Nilgiri/Doddabetta hill photograph with scroll-driven motion.
 - Cinematic loading intro with skip, replay, and reduced-motion support.
 - Four interactive challenge tracks and three event-phase previews.
+- Live ticking countdown HUD clock with days left calculation.
+- Interactive sponsors console showcasing go.hub, scidaforest, elro tech, unstop, and delyon.
 - Downloadable team build brief.
 - Registration draft saved only on the current device, with download and clear controls.
 - Responsive navigation, native dialogs, FAQs, and optional browser WebMCP tools.
 
 ## Event status
 
-The working name is **Doddabetta Hacks**. Dates, exact venue, duration, eligibility, prizes, mentors, sponsors, and official registration are still to be announced. Tracks and event phases are proposed themes, labeled as previews.
+The event is **Ecothon 2026** held on **December 12 & 13, 2026** in Ooty, India. 24-hour non-stop hackathon with ₹30,000 prize pool, 500+ builders, and 5+ AI mentors and venture evaluators.
 
 **The registration form does not submit an application, send email, or reserve a place.** It is a local draft preview. Add an official registration destination or backend before accepting real applications.
 
