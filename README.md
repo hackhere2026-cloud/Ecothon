@@ -1,6 +1,6 @@
-# Ecothon 2026
+# OOTY HACKS 2026
 
-A cinematic, interactive hackathon event website set in Ooty on December 12 & 13, 2026. Ecothon brings together 500+ builders for a 24-hour sprint in the Nilgiri hills.
+A cinematic, interactive hackathon event website set in Ooty on December 19 & 20, 2026. OOTY HACKS brings together 500+ builders for a 24-hour sprint in the Nilgiri hills.
 
 ## Deploy on Vercel
 
@@ -43,7 +43,7 @@ Open `http://localhost:4173`. This is plain HTML, CSS, and JavaScript; there are
 
 ## Event status
 
-The event is **Ecothon 2026** held on **December 12 & 13, 2026** in Ooty, India. 24-hour non-stop hackathon with ₹30,000 prize pool, 500+ builders, and 5+ AI mentors and venture evaluators.
+The event is **OOTY HACKS 2026** held on **December 19 & 20, 2026** in Ooty, India. 24-hour non-stop hackathon with ₹30,000 prize pool, 500+ builders, and 5+ AI mentors and venture evaluators.
 
 **The registration form does not submit an application, send email, or reserve a place.** It is a local draft preview. Add an official registration destination or backend before accepting real applications.
 

@@ -202,7 +202,7 @@ select.form-input option{background:#0b130f;color:var(--ink)}
 }
 
 /* ==========================================================================
-   EVENT DATE & LIVE COUNTDOWN HUD (DEC 12 & 13)
+   EVENT DATE & LIVE COUNTDOWN HUD (DEC 19 & 20)
    ========================================================================== */
 .hero-date-badge{display:inline-flex;align-items:center;gap:7px;color:var(--ink);letter-spacing:.08em}
 .hero-date-badge .badge-dot{color:var(--lime);font-size:10px}
